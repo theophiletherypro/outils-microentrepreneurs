@@ -3,144 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Boîte à Outils du Solopreneur — Zéro blabla, de l'action.</title>
+    <title>La Boîte à Outils du Solopreneur — Prêt à l'action</title>
     <style>
         :root {
-            --bg-workspace: #f8fafc; /* Blanc/Gris de travail épuré (60%) */
-            --text-main: #0f172a; /* Bleu nuit profond et sérieux (30%) */
-            --text-muted: #475569; /* Gris ardoise pour les textes secondaires */
-            --action-emerald: #059669; /* Vert émeraude éclatant pour l'action (10%) */
+            --bg-workspace: #f8fafc; /* Fond gris/blanc ultra-pro (60%) */
+            --text-main: #0f172a; /* Bleu nuit pour la confiance (30%) */
+            --text-muted: #475569;
+            --action-emerald: #059669; /* Vert pour le passage à l'action (10%) */
             --action-hover: #047857;
-            --secondary-amber: #f59e0b; /* Ambre exclusif pour les éléments Premium */
+            --premium-amber: #f59e0b; /* Ambre pour les outils payants */
             --card-bg: #ffffff;
             --border-soft: #e2e8f0;
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, sans-serif;
             line-height: 1.5;
             color: var(--text-main);
             background-color: var(--bg-workspace);
             margin: 0;
             padding: 0;
-            -webkit-font-smoothing: antialiased;
         }
 
         header {
             background-color: var(--text-main);
             color: white;
-            padding: 3.5rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 800;
-            letter-spacing: -0.05em;
+            letter-spacing: -0.03em;
         }
 
         header p {
             margin: 0.75rem 0 0 0;
             font-size: 1.25rem;
             color: #94a3b8;
-            font-weight: 400;
-            max-width: 600px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .container {
             max-width: 1100px;
-            margin: 3rem auto;
+            margin: -2rem auto 4rem auto;
             padding: 0 1.5rem;
         }
 
-        .intro {
+        .intro-box {
             background-color: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
-            margin-bottom: 3.5rem;
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.05);
             border-left: 6px solid var(--action-emerald);
         }
 
-        .intro h3 {
-            margin-top: 0;
-            font-size: 1.35rem;
-            color: var(--text-main);
-            font-weight: 700;
-        }
-
-        .intro p {
-            color: var(--text-muted);
-            margin-bottom: 0;
-            font-size: 1.05rem;
-        }
+        .intro-box h3 { margin-top: 0; font-size: 1.3rem; font-weight: 700; }
+        .intro-box p { color: var(--text-muted); margin-bottom: 0; font-size: 1.05rem; }
 
         .section-title {
-            font-size: 1.75rem;
-            color: var(--text-main);
+            font-size: 1.8rem;
             font-weight: 800;
-            margin-top: 3.5rem;
+            margin-top: 4rem;
             margin-bottom: 0.25rem;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
         }
 
         .section-desc {
             color: var(--text-muted);
             margin-top: 0;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-size: 1.05rem;
         }
 
+        /* Système de grille pour les cartes */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.75rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .card {
             background: var(--card-bg);
             padding: 1.75rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.03), 0 2px 4px -1px rgba(15, 23, 42, 0.02);
+            border: 1px solid var(--border-soft);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            border: 1px solid var(--border-soft);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.08);
         }
 
         .badge {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
-            padding: 0.35rem 0.75rem;
+            padding: 0.25rem 0.6rem;
             border-radius: 50px;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
-        .badge.free { background-color: #ecfdf5; color: #047857; }
-        .badge.premium { background-color: #fffbeb; color: #b45309; }
+        .badge.free { background-color: #d1fae5; color: #065f46; }
+        .badge.premium { background-color: #fef3c7; color: #92400e; }
 
         .card h3 {
             margin-top: 0;
             margin-bottom: 0.75rem;
             font-size: 1.2rem;
-            font-weight: 700;
             padding-right: 5rem;
-            line-height: 1.3;
         }
 
         .card p {
@@ -153,110 +135,110 @@
 
         .btn {
             display: inline-block;
-            background-color: var(--action-emerald);
+            background-color: var(--text-main);
             color: white;
             text-align: center;
-            padding: 0.75rem 1.25rem;
+            padding: 0.75rem 1rem;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: background-color 0.2s;
-            border: none;
-            cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .btn:hover { background-color: var(--action-hover); }
-        .btn.btn-premium { background-color: var(--secondary-amber); color: var(--text-main); }
-        .btn.btn-premium:hover { background-color: #d97706; }
+        .btn:hover { background-color: #1e293b; }
+        
+        /* Bouton Action pour le Gratuit */
+        .card .btn-free { background-color: var(--action-emerald); }
+        .card .btn-free:hover { background-color: var(--action-hover); }
+
+        /* Bouton Action pour le Premium */
+        .card .btn-premium { background-color: var(--premium-amber); color: var(--text-main); }
+        .card .btn-premium:hover { background-color: #d97706; }
 
         footer {
             text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 6rem;
+            padding: 4rem 1rem 3rem 1rem;
+            margin-top: 8rem;
             background-color: var(--text-main);
-            color: #94a3b8;
-            font-size: 0.9rem;
+            color: #64748b;
+            font-size: 0.85rem;
         }
-
-        footer p { margin: 0; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>La Boîte à Outils du Solopreneur</h1>
-        <p>Zéro blabla, de l'action. Des tableurs automatisés et des fiches méthodologiques simples pour propulser votre projet seul à bord.</p>
+        <p>Zéro blabla, de l'action. Des tableurs de gestion automatisés et des fiches d'action assistées par l'IA pour piloter ton activité seul à bord.</p>
     </header>
 
     <div class="container">
         
-        <div class="intro">
-            <h3>Seul, mais équipé comme une grande entreprise.</h3>
-            <p>Pas de théories complexes ni de rapports de 50 pages. Vous trouverez ici des matrices prêtes à l'emploi sur Google Sheets et des fiches d'action assistées par l'IA pour valider votre idée, trouver vos clients, fixer vos prix et suivre votre rentabilité.</p>
+        <div class="intro-box">
+            <h3>💡 Une règle simple : Gratuit pour comprendre, Premium pour automatiser.</h3>
+            <p>Nos fiches gratuites et petits simulateurs t'aident à savoir <strong>quoi faire</strong> et à valider tes étapes. Nos outils Premium font le travail à ta place pour t'acheter du temps et de la sérénité au quotidien.</p>
         </div>
 
-        <!-- CATEGORIE 1 : CATALOGUE DES TABLEURS GOOGLE SHEETS -->
-        <h2 class="section-title">📊 1. Vos Tableurs Google Sheets clés en main</h2>
-        <p class="section-desc">Téléchargez vos espaces de travail automatisés pour chiffrer et piloter votre activité sans vous transformer en comptable.</p>
+        <!-- BLOC 1 : LES TABLEURS AUTOMATISÉS -->
+        <h2 class="section-title">📊 Les Tableurs Google Sheets</h2>
+        <p class="section-desc">Chiffre ton projet et automatise ta gestion sans te transformer en comptable.</p>
         
         <div class="grid">
             <div class="card">
                 <span class="badge free">Gratuit</span>
                 <h3>Simulateur de Tarification</h3>
-                <p>Calculez précisément votre tarif horaire, journalier ou le prix de vos produits en intégrant vos charges réelles et votre objectif de salaire net.</p>
-                <a href="#" class="btn">Télécharger le modèle</a>
+                <p>Trouve ton tarif horaire ou journalier idéal en fonction de tes charges et de ton objectif de salaire net.</p>
+                <a href="#" class="btn btn-free">Télécharger l'outil</a>
             </div>
 
             <div class="card">
                 <span class="badge free">Gratuit</span>
                 <h3>Calculateur de Seuil de Rentabilité</h3>
-                <p>Découvrez le montant exact et le nombre de ventes minimales à réaliser chaque mois pour payer vos factures et commencer à gagner de l'argent.</p>
-                <a href="#" class="btn">Télécharger le modèle</a>
+                <p>Découvre le montant exact que tu dois vendre chaque mois pour payer tes factures et ne pas être à découvert.</p>
+                <a href="#" class="btn btn-free">Télécharger l'outil</a>
             </div>
 
             <div class="card">
                 <span class="badge premium">Premium</span>
-                <h3>Livre des Recettes & Achats Automatisé</h3>
-                <p>Votre comptabilité obligatoire simplifiée sur Google Sheets. Enregistrez vos flux et visualisez vos plafonds de chiffre d'affaires et de franchise de TVA en direct.</p>
-                <a href="#" class="btn btn-premium">Accéder à l'outil</a>
-            </div>
-
-            <div class="card">
-                <span class="badge premium">Premium</span>
-                <h3>Tableau de Bord & Trésorerie Solopreneur</h3>
-                <p>Centralisez vos indicateurs majeurs (KPI) sur un écran visuel unique : prévisions d'encaissements, suivi des dépenses et courbes de croissance.</p>
-                <a href="#" class="btn btn-premium">Accéder à l'outil</a>
+                <h3>Livre des Recettes Automatisé</h3>
+                <p>Ta comptabilité obligatoire gérée seule. Remplis tes ventes, l'outil calcule tes impôts et suit tes plafonds de TVA en direct.</p>
+                <a href="#" class="btn btn-premium">Acheter l'outil</a>
             </div>
         </div>
 
-        <!-- CATEGORIE 2 : VALIDER MON IDEE -->
-        <h2 class="section-title">💡 2. Fiches Pratiques : Valider & Protéger mon Idée</h2>
-        <p class="section-desc">Des guides d'action rapides complétés par des prompts IA pour vérifier la solidité économique de votre projet avant de vous lancer.</p>
+        <!-- BLOC 2 : LE PARCOURS DE FICHES -->
+        <h2 class="section-title">🏃‍♂️ Le Parcours Étape par Étape</h2>
+        <p class="section-desc">Passe de la simple idée à tes premiers clients en évitant les pièges du démarrage.</p>
         
         <div class="grid">
             <div class="card">
                 <span class="badge free">Gratuit</span>
-                <h3>Fiche : L'Adéquation Homme/Projet</h3>
-                <p>Méthode pour confronter vos contraintes personnelles (temps, finances, santé) à vos ambitions professionnelles afin d'éviter l'épuisement.</p>
+                <h3>1. Valider : Le Client Idéal (Persona)</h3>
+                <p>Apprends à repérer les vrais problèmes et les frustrations de ta cible pour concevoir une offre qu'ils veulent vraiment acheter.</p>
                 <a href="#" class="btn">Lire la fiche</a>
             </div>
 
             <div class="card">
                 <span class="badge free">Gratuit</span>
-                <h3>Fiche : Définir son Client Idéal & ses JTBD</h3>
-                <p>Apprenez à cartographier les frustrations réelles de votre cible et le "travail" exact qu'elle cherche à accomplir à travers votre offre. (Inclus : Prompts IA de profilage).</p>
+                <h3>2. Trouver : Créer une Offre Irrésistible</h3>
+                <p>Ne vends pas des caractéristiques techniques. Apprends à packager tes services pour rendre ta valeur évidente aux yeux de tes clients.</p>
                 <a href="#" class="btn">Lire la fiche</a>
             </div>
 
             <div class="card">
                 <span class="badge premium">Premium</span>
-                <h3>Fiche : Construire son MVP (Produit Minimum Viable)</h3>
-                <p>La feuille de route pas-à-pas pour créer et tester une version ultra-simplifiée de votre offre sur le terrain avec 0 € de budget technique.</p>
-                <a href="#" class="btn btn-premium">Débloquer le Guide</a>
+                <h3>3. Lancer : Kit de Vente & Copywriting</h3>
+                <p>Tes modèles de pages de vente et une suite de prompts IA clés en main pour écrire tes e-mails et tes posts sans le syndrome de la page blanche.</p>
+                <a href="#" class="btn btn-premium">Débloquer le Kit</a>
             </div>
+        </div>
 
-            <div class="card">
-                <span class="badge premium">Premium</span>
-                <h3>Fiche : Protéger ses Actifs & sa Marque</h3>
-                <p>Le guide vulgarisé pour sécuriser votre nom commercial, votre logo et vos noms de domaine auprès de l'INPI et sur le web de manière autonome.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 La Boîte à Outils du Solopreneur. Hébergé avec sérénité sur GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
