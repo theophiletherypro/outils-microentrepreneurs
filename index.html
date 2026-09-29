@@ -3,194 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Boîte à Outils des Micro-Entrepreneurs</title>
+    <title>La Boîte à Outils du Solopreneur — Zéro blabla, de l'action.</title>
     <style>
         :root {
-            --primary: #0f766e; /* Vert canard professionnel */
-            --primary-dark: #115e59;
-            --secondary: #f59e0b; /* Ambre pour le Premium/Boutons */
-            --text: #1f2937;
-            --bg-light: #f9fafb;
+            --bg-workspace: #f8fafc; /* Blanc/Gris de travail épuré (60%) */
+            --text-main: #0f172a; /* Bleu nuit profond et sérieux (30%) */
+            --text-muted: #475569; /* Gris ardoise pour les textes secondaires */
+            --action-emerald: #059669; /* Vert émeraude éclatant pour l'action (10%) */
+            --action-hover: #047857;
+            --secondary-amber: #f59e0b; /* Ambre exclusif pour les éléments Premium */
             --card-bg: #ffffff;
+            --border-soft: #e2e8f0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--bg-light);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            color: var(--text-main);
+            background-color: var(--bg-workspace);
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         header {
-            background-color: var(--primary);
+            background-color: var(--text-main);
             color: white;
-            padding: 2rem 1rem;
+            padding: 3.5rem 1rem;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
         }
 
         header p {
-            margin: 0.5rem 0 0 0;
-            font-size: 1.1rem;
-            opacity: 0.9;
+            margin: 0.75rem 0 0 0;
+            font-size: 1.25rem;
+            color: #94a3b8;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .container {
             max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
         }
 
         .intro {
             background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            border-left: 5px solid var(--primary);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+            margin-bottom: 3.5rem;
+            border-left: 6px solid var(--action-emerald);
         }
 
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
+        .intro h3 {
+            margin-top: 0;
+            font-size: 1.35rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .intro p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--text-main);
+            font-weight: 800;
+            margin-top: 3.5rem;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.03em;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
             margin-top: 1rem;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            padding: 1.75rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.03), 0 2px 4px -1px rgba(15, 23, 42, 0.02);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-soft);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
         }
 
         .badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            padding: 0.25rem 0.6rem;
+            top: 1.5rem;
+            right: 1.5rem;
+            padding: 0.35rem 0.75rem;
             border-radius: 50px;
             font-size: 0.75rem;
-            font-weight: bold;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .badge.free { background-color: #d1fae5; color: #065f46; }
-        .badge.premium { background-color: #fef3c7; color: #92400e; }
+        .badge.free { background-color: #ecfdf5; color: #047857; }
+        .badge.premium { background-color: #fffbeb; color: #b45309; }
 
         .card h3 {
             margin-top: 0;
-            margin-bottom: 0.5rem;
-            padding-right: 4rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding-right: 5rem;
+            line-height: 1.3;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--primary);
+            background-color: var(--action-emerald);
             color: white;
             text-align: center;
-            padding: 0.6rem 1rem;
+            padding: 0.75rem 1.25rem;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.2s;
-            margin-top: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
-        .btn:hover { background-color: var(--primary-dark); }
-        .btn.btn-premium { background-color: var(--secondary); color: #1f2937; }
+        .btn:hover { background-color: var(--action-hover); }
+        .btn.btn-premium { background-color: var(--secondary-amber); color: var(--text-main); }
         .btn.btn-premium:hover { background-color: #d97706; }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            background-color: #1f2937;
-            color: #9ca3af;
+            padding: 3rem 1rem;
+            margin-top: 6rem;
+            background-color: var(--text-main);
+            color: #94a3b8;
             font-size: 0.9rem;
         }
+
+        footer p { margin: 0; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>La Boîte à Outils des Micro-Entrepreneurs</h1>
-        <p>Modèles Google Sheets et Prompts IA pour piloter et développer votre business</p>
+        <h1>La Boîte à Outils du Solopreneur</h1>
+        <p>Zéro blabla, de l'action. Des tableurs automatisés et des fiches méthodologiques simples pour propulser votre projet seul à bord.</p>
     </header>
 
     <div class="container">
         
         <div class="intro">
-            <h3>Bienvenue !</h3>
-            <p>Propulsez votre structure grâce à des ressources prêtes à l'emploi. Réalisez votre étude de marché, structurez votre offre commerciale et automatisez vos tâches quotidiennes grâce à nos fiches pratiques et nos tableurs optimisés.</p>
+            <h3>Seul, mais équipé comme une grande entreprise.</h3>
+            <p>Pas de théories complexes ni de rapports de 50 pages. Vous trouverez ici des matrices prêtes à l'emploi sur Google Sheets et des fiches d'action assistées par l'IA pour valider votre idée, trouver vos clients, fixer vos prix et suivre votre rentabilité.</p>
         </div>
 
-        <!-- SECTION 1 : ETUDE DE MARCHE & PROMPTS -->
-        <h2>1. Études de Marché & Fiches de Prompts IA</h2>
-        <p>Copiez nos prompts structurés pour interroger ChatGPT ou Claude et obtenir des analyses ultra-ciblées.</p>
+        <!-- CATEGORIE 1 : CATALOGUE DES TABLEURS GOOGLE SHEETS -->
+        <h2 class="section-title">📊 1. Vos Tableurs Google Sheets clés en main</h2>
+        <p class="section-desc">Téléchargez vos espaces de travail automatisés pour chiffrer et piloter votre activité sans vous transformer en comptable.</p>
         
         <div class="grid">
-            <!-- Fiche 1 -->
             <div class="card">
                 <span class="badge free">Gratuit</span>
-                <h3>Prompt : Analyse d'audience cible</h3>
-                <p>Découvrez le profil psychologique de vos clients idéaux, leurs frustrations majeures et leurs déclencheurs d'achat.</p>
-                <a href="#" class="btn">Voir la fiche</a>
-            </div>
-
-            <!-- Fiche 2 -->
-            <div class="card">
-                <span class="badge premium">Premium</span>
-                <h3>Kit de Prompts : Étude de Commercialisation</h3>
-                <p>Une séquence complète de 7 prompts experts pour définir vos tarifs, votre positionnement et votre stratégie de lancement.</p>
-                <a href="#" class="btn btn-premium">Accéder au Kit</a>
-            </div>
-        </div>
-
-        <!-- SECTION 2 : GOOGLE SHEETS -->
-        <h2>2. Outils & Tableurs Google Sheets</h2>
-        <p>Des outils financiers et de gestion pour suivre vos indicateurs sans prise de tête.</p>
-        
-        <div class="grid">
-            <!-- Outil 1 -->
-            <div class="card">
-                <span class="badge free">Gratuit</span>
-                <h3>Calculateur de Prix de Vente</h3>
-                <p>Intégrez vos charges, vos cotisations de micro-entrepreneur et déterminez instantanément votre taux horaire ou prix de vente rentable.</p>
+                <h3>Simulateur de Tarification</h3>
+                <p>Calculez précisément votre tarif horaire, journalier ou le prix de vos produits en intégrant vos charges réelles et votre objectif de salaire net.</p>
                 <a href="#" class="btn">Télécharger le modèle</a>
             </div>
 
-            <!-- Outil 2 -->
+            <div class="card">
+                <span class="badge free">Gratuit</span>
+                <h3>Calculateur de Seuil de Rentabilité</h3>
+                <p>Découvrez le montant exact et le nombre de ventes minimales à réaliser chaque mois pour payer vos factures et commencer à gagner de l'argent.</p>
+                <a href="#" class="btn">Télécharger le modèle</a>
+            </div>
+
             <div class="card">
                 <span class="badge premium">Premium</span>
-                <h3>Pilotage Business Plan & Trésorerie</h3>
-                <p>Le tableau de bord complet pour anticiper votre chiffre d'affaires, suivre vos dépenses réelles et ne jamais être à court de trésorerie.</p>
-                <a href="#" class="btn btn-premium">Acheter le modèle</a>
+                <h3>Livre des Recettes & Achats Automatisé</h3>
+                <p>Votre comptabilité obligatoire simplifiée sur Google Sheets. Enregistrez vos flux et visualisez vos plafonds de chiffre d'affaires et de franchise de TVA en direct.</p>
+                <a href="#" class="btn btn-premium">Accéder à l'outil</a>
+            </div>
+
+            <div class="card">
+                <span class="badge premium">Premium</span>
+                <h3>Tableau de Bord & Trésorerie Solopreneur</h3>
+                <p>Centralisez vos indicateurs majeurs (KPI) sur un écran visuel unique : prévisions d'encaissements, suivi des dépenses et courbes de croissance.</p>
+                <a href="#" class="btn btn-premium">Accéder à l'outil</a>
             </div>
         </div>
 
-    </div>
+        <!-- CATEGORIE 2 : VALIDER MON IDEE -->
+        <h2 class="section-title">💡 2. Fiches Pratiques : Valider & Protéger mon Idée</h2>
+        <p class="section-desc">Des guides d'action rapides complétés par des prompts IA pour vérifier la solidité économique de votre projet avant de vous lancer.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <span class="badge free">Gratuit</span>
+                <h3>Fiche : L'Adéquation Homme/Projet</h3>
+                <p>Méthode pour confronter vos contraintes personnelles (temps, finances, santé) à vos ambitions professionnelles afin d'éviter l'épuisement.</p>
+                <a href="#" class="btn">Lire la fiche</a>
+            </div>
 
-    <footer>
-        <p>&copy; 2026 La Boîte à Outils Business. Hébergé fièrement sur GitHub Pages.</p>
-    </footer>
+            <div class="card">
+                <span class="badge free">Gratuit</span>
+                <h3>Fiche : Définir son Client Idéal & ses JTBD</h3>
+                <p>Apprenez à cartographier les frustrations réelles de votre cible et le "travail" exact qu'elle cherche à accomplir à travers votre offre. (Inclus : Prompts IA de profilage).</p>
+                <a href="#" class="btn">Lire la fiche</a>
+            </div>
 
-</body>
-</html>
+            <div class="card">
+                <span class="badge premium">Premium</span>
+                <h3>Fiche : Construire son MVP (Produit Minimum Viable)</h3>
+                <p>La feuille de route pas-à-pas pour créer et tester une version ultra-simplifiée de votre offre sur le terrain avec 0 € de budget technique.</p>
+                <a href="#" class="btn btn-premium">Débloquer le Guide</a>
+            </div>
+
+            <div class="card">
+                <span class="badge premium">Premium</span>
+                <h3>Fiche : Protéger ses Actifs & sa Marque</h3>
+                <p>Le guide vulgarisé pour sécuriser votre nom commercial, votre logo et vos noms de domaine auprès de l'INPI et sur le web de manière autonome.</p>
