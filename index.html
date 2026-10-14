@@ -3,242 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Boîte à Outils du Solopreneur — Prêt à l'action</title>
+    <title>Labosept — Le Laboratoire des Micro-Entrepreneurs et Solopreneurs</title>
+    <meta name="description" content="Des tableurs de gestion automatisés, des simulateurs gratuits et la création de votre site web statique sur GitHub. Zéro blabla, de l'action pour les solos.">
     <style>
         :root {
-            --bg-workspace: #f8fafc; /* Fond gris/blanc ultra-pro (60%) */
-            --text-main: #0f172a; /* Bleu nuit pour la confiance (30%) */
-            --text-muted: #475569;
-            --action-emerald: #059669; /* Vert pour le passage à l'action (10%) */
-            --action-hover: #047857;
-            --premium-amber: #f59e0b; /* Ambre pour les outils payants */
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #0066cc;
+            --border-color: #e5e5e5;
             --card-bg: #ffffff;
-            --border-soft: #e2e8f0;
+            --muted-text: #666666;
         }
 
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.5;
-            color: var(--text-main);
-            background-color: var(--bg-workspace);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: var(--text-main);
-            color: white;
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-        }
-
-        header p {
-            margin: 0.75rem 0 0 0;
-            font-size: 1.25rem;
-            color: #94a3b8;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .container {
             max-width: 1100px;
-            margin: -2rem auto 4rem auto;
-            padding: 0 1.5rem;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .intro-box {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.05);
-            border-left: 6px solid var(--action-emerald);
-        }
-
-        .intro-box h3 { margin-top: 0; font-size: 1.3rem; font-weight: 700; }
-        .intro-box p { color: var(--text-muted); margin-bottom: 0; font-size: 1.05rem; }
-
-        .section-title {
-            font-size: 1.8rem;
+        .logo {
             font-weight: 800;
-            margin-top: 4rem;
-            margin-bottom: 0.25rem;
-            letter-spacing: -0.02em;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            color: var(--text-color);
+            text-decoration: none;
         }
 
-        .section-desc {
-            color: var(--text-muted);
-            margin-top: 0;
+        .hero {
+            max-width: 800px;
+            margin: 5rem auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--muted-text);
             margin-bottom: 2rem;
-            font-size: 1.05rem;
         }
 
-        /* Système de grille pour les cartes */
-        .grid {
+        .badge-rule {
+            display: inline-block;
+            background-color: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .grid-cibles {
+            max-width: 1100px;
+            margin: 0 auto 5rem auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
+            padding: 0 1rem;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 1.75rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-soft);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        .badge {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .badge.free { background-color: #d1fae5; color: #065f46; }
-        .badge.premium { background-color: #fef3c7; color: #92400e; }
-
-        .card h3 {
+        .card h2 {
+            font-size: 1.5rem;
             margin-top: 0;
-            margin-bottom: 0.75rem;
-            font-size: 1.2rem;
-            padding-right: 5rem;
+            font-weight: 700;
         }
 
         .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
+            color: var(--muted-text);
+            font-size: 1rem;
             flex-grow: 1;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--text-main);
-            color: white;
-            text-align: center;
-            padding: 0.75rem 1rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background 0.2s;
+        .tag-status {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
         }
 
-        .btn:hover { background-color: #1e293b; }
-        
-        /* Bouton Action pour le Gratuit */
-        .card .btn-free { background-color: var(--action-emerald); }
-        .card .btn-free:hover { background-color: var(--action-hover); }
+        .tag-free { background-color: #e6f4ea; color: #137333; }
+        .tag-premium { background-color: #e8f0fe; color: #1a73e8; }
 
-        /* Bouton Action pour le Premium */
-        .card .btn-premium { background-color: var(--premium-amber); color: var(--text-main); }
-        .card .btn-premium:hover { background-color: #d97706; }
+        .item-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .item-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--text-color);
+            color: #fff;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+        }
+
+        .newsletter-box {
+            max-width: 650px;
+            margin: 0 auto 5rem auto;
+            background-color: #f9f9f9;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter-box h3 {
+            font-size: 1.75rem;
+            margin-top: 0;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background-color: var(--text-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--accent-color);
+        }
 
         footer {
             text-align: center;
-            padding: 4rem 1rem 3rem 1rem;
-            margin-top: 8rem;
-            background-color: var(--text-main);
-            color: #64748b;
-            font-size: 0.85rem;
+            padding: 3rem 1rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--muted-text);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .newsletter-form { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>La Boîte à Outils du Solopreneur</h1>
-        <p>Zéro blabla, de l'action. Des tableurs de gestion automatisés et des fiches d'action assistées par l'IA pour piloter ton activité seul à bord.</p>
+        <a href="#" class="logo">🧪 LABOSEPT</a>
     </header>
 
-    <div class="container">
-        
-        <div class="intro-box">
-            <h3>💡 Une règle simple : Gratuit pour comprendre, Premium pour automatiser.</h3>
-            <p>Nos fiches gratuites et petits simulateurs t'aident à savoir <strong>quoi faire</strong> et à valider tes étapes. Nos outils Premium font le travail à ta place pour t'acheter du temps et de la sérénité au quotidien.</p>
-        </div>
+    <main>
+        <section class="hero">
+            <div class="badge-rule">💡 Règle d'or : Gratuit pour tester, Premium pour automatiser</div>
+            <h1>Le laboratoire des micro-entrepreneurs solos</h1>
+            <p>Zéro blabla, de l'action. Des outils de gestion automatisés et votre présence web clés en main sur GitHub pour lancer votre activité sans stress.</p>
+        </section>
 
-        <!-- BLOC 1 : LES TABLEURS AUTOMATISÉS -->
-        <h2 class="section-title">📊 Les Tableurs Google Sheets</h2>
-        <p class="section-desc">Chiffre ton projet et automatise ta gestion sans te transformer en comptable.</p>
-        
-        <div class="grid">
+        <section class="grid-cibles">
+            <!-- Cible 1 : Porteurs de projet -->
             <div class="card">
-                <span class="badge free">Gratuit</span>
-                <h3>Simulateur de Tarification</h3>
-                <p>Trouve ton tarif horaire ou journalier idéal en fonction de tes charges et de ton objectif de salaire net.</p>
-                <a href="#" class="btn btn-free">Télécharger l'outil</a>
+                <div>
+                    <span class="tag-status tag-free">Étape 1 : Valider</span>
+                    <h2>💡 Je teste mon idée</h2>
+                    <p>Tu as une idée de business en ligne ou d'artisanat ? Utilise notre laboratoire pour vérifier instantanément si ton projet est financièrement viable.</p>
+                    <ul class="item-list">
+                        <li>🧪 <strong>Testeur d'Idée Express</strong> (Gratuit en ligne)</li>
+                        <li>📊 <strong>Simulateur de Tarification</strong> (Inclus)</li>
+                        <li>📈 <strong>Calculateur de Seuil de Rentabilité</strong> (Inclus)</li>
+                    </ul>
+                </div>
+                <a href="#" class="btn btn-secondary">Lancer le simulateur</a>
             </div>
 
+            <!-- Cible 2 : Micro-entrepreneurs installés -->
             <div class="card">
-                <span class="badge free">Gratuit</span>
-                <h3>Calculateur de Seuil de Rentabilité</h3>
-                <p>Découvre le montant exact que tu dois vendre chaque mois pour payer tes factures et ne pas être à découvert.</p>
-                <a href="#" class="btn btn-free">Télécharger l'outil</a>
+                <div>
+                    <span class="tag-status tag-premium">Étape 2 : Piloter</span>
+                    <h2>📊 Je gère mon activité</h2>
+                    <p>Automatise ta gestion financière et tes obligations administratives quotidiennes sans te transformer en comptable professionnel.</p>
+                    <ul class="item-list">
+                        <li>📝 <strong>Livre des Recettes Automatisé</strong> (Google Sheets)</li>
+                        <li>💰 <strong>Calcul des charges & Impôts</strong> (En direct)</li>
+                        <li>⚠️ <strong>Suivi des plafonds de franchise TVA</strong></li>
+                    </ul>
+                </div>
+                <a href="#" class="btn">Débloquer le Tableur Pro</a>
             </div>
 
+            <!-- Cible 3 : Présence Web & SEO -->
             <div class="card">
-                <span class="badge premium">Premium</span>
-                <h3>Livre des Recettes Automatisé</h3>
-                <p>Ta comptabilité obligatoire gérée seule. Remplis tes ventes, l'outil calcule tes impôts et suit tes plafonds de TVA en direct.</p>
-                <a href="#" class="btn btn-premium">Acheter l'outil</a>
+                <div>
+                    <span class="tag-status tag-premium">Étape 3 : Rayonner</span>
+                    <h2>🌐 Je me lance sur le Web</h2>
+                    <p>Une présence en ligne professionnelle, ultra-rapide, optimisée pour Google et sans aucun frais d'abonnement mensuel d'hébergement.</p>
+                    <ul class="item-list">
+                        <li>🚀 <strong>Site vitrine statique</strong> hébergé sur GitHub Pages</li>
+                        <li>🎯 <strong>SEO Fondations</strong> (Balises, Sitemap, Google Console)</li>
+                        <li>🤝 <strong>Maintenance technique incluse</strong> (Modifications simples)</li>
+                    </ul>
+                </div>
+                <a href="#" class="btn">Avoir mon site GitHub</a>
             </div>
-        </div>
+        </section>
 
-        <!-- BLOC 2 : LE PARCOURS DE FICHES -->
-        <h2 class="section-title">🏃‍♂️ Le Parcours Étape par Étape</h2>
-        <p class="section-desc">Passe de la simple idée à tes premiers clients en évitant les pièges du démarrage.</p>
-        
-        <div class="grid">
-            <div class="card">
-                <span class="badge free">Gratuit</span>
-                <h3>1. Valider : Le Client Idéal (Persona)</h3>
-                <p>Apprends à repérer les vrais problèmes et les frustrations de ta cible pour concevoir une offre qu'ils veulent vraiment acheter.</p>
-                <a href="#" class="btn">Lire la fiche</a>
-            </div>
+        <!-- Section Newsletter / Pédagogie Compta & SEO -->
+        <section class="newsletter-box">
+            <h3>Pas de panique, on dompte l'administration et Google ensemble</h3>
+            <p>Rejoins la newsletter du Labo. Deux fois par mois, reçois des astuces concrètes, visuelles et simples pour gérer ta compta et faire grimper ton site internet.</p>
+            <form class="newsletter-form" action="#" method="POST">
+                <input type="email" placeholder="Ton adresse e-mail pro..." required>
+                <button type="submit">Rejoindre le Labo</button>
+            </form>
+        </section>
+    </main>
 
-            <div class="card">
-                <span class="badge free">Gratuit</span>
-                <h3>2. Trouver : Créer une Offre Irrésistible</h3>
-                <p>Ne vends pas des caractéristiques techniques. Apprends à packager tes services pour rendre ta valeur évidente aux yeux de tes clients.</p>
-                <a href="#" class="btn">Lire la fiche</a>
-            </div>
-
-            <div class="card">
-                <span class="badge premium">Premium</span>
-                <h3>3. Lancer : Kit de Vente & Copywriting</h3>
-                <p>Tes modèles de pages de vente et une suite de prompts IA clés en main pour écrire tes e-mails et tes posts sans le syndrome de la page blanche.</p>
-                <a href="#" class="btn btn-premium">Débloquer le Kit</a>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 La Boîte à Outils du Solopreneur. Hébergé avec sérénité sur GitHub Pages.</p>
-    </footer>
-
-</body>
-</html>
