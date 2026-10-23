@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étape 1 : Valider mon idée — Labosept</title>
+    <meta name="description" content="Triez vos idées, testez la viabilité de votre concept sur le terrain et construisez votre modèle économique sans stress.">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #0066cc;
+            --border-color: #e5e5e5;
+            --card-bg: #ffffff;
+            --muted-text: #666666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--muted-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .tag-stage {
+            display: inline-block;
+            background-color: #e6f4ea;
+            color: #137333;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: var(--muted-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .download-box {
+            background-color: #f9f9f9;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .download-box h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-box p {
+            color: var(--muted-text);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .email-form input[type="email"] {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .email-form button {
+            background-color: var(--text-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .email-form button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .sub-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .step-sub-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .step-sub-card h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .step-sub-card p {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-sm {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn-sm:hover {
+            background-color: #f5f5f5;
+        }
+
+        .asterisk-info {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            border-top: 1px dashed var(--border-color);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .coaching-section {
+            background-color: #f0f6ff;
+            border: 1px solid #d0e3ff;
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .coaching-section h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .coaching-section p {
+            color: #333;
+            max-width: 650px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 1rem 2rem 1rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--muted-text);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .email-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">🧪 LABOSEPT</a>
+        <nav class="nav-links">
+            <a href="index.html">← Revenir à l'accueil</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- En-tête de la page -->
+        <section class="page-header">
+            <span class="tag-stage">Étape 1 : Idéation & Validation</span>
+            <h1>Je teste mon idée</h1>
+            <p class="lead">Le point de départ indispensable. Avant de dépenser votre argent ou de vous perdre dans les démarches administratives, vous devez vous assurer que votre projet repose sur des fondations solides.</p>
+        </section>
+
+        <!-- Bloc de capture principal : Produit d'Appel -->
+        <section class="download-box">
+            <h2>📥 Téléchargez votre Plan de Route Gratuit</h2>
+            <p>Une infographie ultra-facilitante au format PDF contenant la check-list pas à pas pour valider votre concept sans vous éparpiller.</p>
+            <form class="email-form" action="#" method="POST">
+                <input type="email" placeholder="Votre adresse email professionnelle..." required>
+                <button type="submit">Recevoir la fiche</button>
+            </form>
+        </section>
+
+        <!-- Grille des 3 sous-contenus opérationnels -->
+        <section class="sub-steps-grid">
+            
+            <!-- Sous-étape 1 -->
+            <div class="step-sub-card">
+                <div>
+                    <h3>🧠 Trouver mon idée</h3>
+                    <p>Vous n'avez pas encore d'idée figée ? Apprenez à générer et structurer des opportunités concrètes à partir de votre parcours, de votre savoir-faire et de vos compétences uniques.</p>
+                </div>
+                <a href="index.html#newsletter" class="btn-sm">Accéder au guide complet</a>
+            </div>
+
+            <!-- Sous-étape 2 -->
+            <div class="step-sub-card">
+                <div>
+                    <h3>🧪 Valider mon concept</h3>
+                    <p>Assurez-vous sur le terrain que votre idée répond à un besoin réel, résout un problème précis et cible le bon profil de client. Ne lancez pas un projet dont personne ne veut.</p>
+                </div>
+                <a href="index.html#newsletter" class="btn-sm">Découvrir les outils de terrain</a>
+            </div>
+
+            <!-- Sous-étape 3 -->
+            <div class="step-sub-card">
+                <div>
+                    <h3>📐 Bâtir mon modèle</h3>
+                    <p>Définissez avec simplicité la structure financière de votre future activité. Apprenez à cartographier la mécanique de vos flux financiers grâce au Business Model Canvas (BMC)*.</p>
+                </div>
+                <a href="index.html#newsletter" class="btn-sm">Bâtir mon BMC</a>
+            </div>
+
+        </section>
+
+        <!-- Note pédagogique astérisque demandée -->
+        <div class="asterisk-info">
+            <p><strong>* Le saviez-vous ?</strong> Le Business Model Canvas (BMC) est un outil d'une seule page qui remplace les longs business plans théoriques. Il vous permet de visualiser instantanément comment votre micro ou auto-entreprise va créer de la valeur, trouver ses clients et concrètement gagner de l'argent.</p>
+        </div>
+
