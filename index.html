@@ -40,69 +40,16 @@
             letter-spacing: -0.5px;
             color: var(--text-color);
             text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-btn {
-            background: none;
-            border: 1px solid var(--border-color);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-color);
-            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: background-color 0.2s;
         }
 
-        .dropdown-btn:hover {
-            background-color: #f5f5f5;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: var(--card-bg);
-            min-width: 240px;
-            box-shadow: 0px 8px 24px rgba(0,0,0,0.08);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            z-index: 10;
-            margin-top: 0.5rem;
-            padding: 0.5rem 0;
-        }
-
-        .dropdown-content a {
-            color: var(--text-color);
-            padding: 0.75rem 1rem;
-            text-decoration: none;
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f5f5f5;
-            color: var(--accent-color);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* Menu horizontal complet */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
 
         .nav-link {
@@ -117,11 +64,17 @@
             color: var(--text-color);
         }
 
+        /* Encapsulation pour centrer le contenu du milieu */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
         .hero {
             max-width: 800px;
             margin: 5rem auto;
             text-align: center;
-            padding: 0 1rem;
         }
 
         .hero h1 {
@@ -149,12 +102,10 @@
         }
 
         .grid-cibles {
-            max-width: 1100px;
             margin: 0 auto 5rem auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 0 1rem;
         }
 
         .card {
@@ -358,6 +309,8 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
+            .nav-menu { gap: 1rem; }
+            .nav-link { font-size: 0.85rem; }
             .newsletter-form { flex-direction: column; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
         }
@@ -368,7 +321,13 @@
     <header>
         <a href="index.html" class="logo">🧪 LABOSEPT</a>
         <nav class="nav-menu">
-            <div class="dropdown">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="etape1-valider.html" class="nav-link">Étape 1 : Valider</a>
+            <a href="etape2-piloter.html" class="nav-link">Étape 2 : Piloter</a>
+            <a href="etape3-rayonner.html" class="nav-link">Étape 3 : Rayonner</a>
+            <a href="a-propos.html" class="nav-link">À propos</a>
+        </nav>
+    </header>
     <main>
         <section class="hero">
             <div class="badge-rule">💡 Règle d'or : Gratuit pour tester, Premium pour automatiser</div>
