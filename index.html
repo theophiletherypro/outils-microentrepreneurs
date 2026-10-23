@@ -42,6 +42,86 @@
             text-decoration: none;
         }
 
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* Système de Sommaire Déroulant (Dropdown) */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--card-bg);
+            min-width: 240px;
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            z-index: 10;
+            margin-top: 0.5rem;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+            color: var(--accent-color);
+        }
+
+        /* Affiche le sommaire au survol */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .btn-nav {
+            background-color: var(--text-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--accent-color);
+        }
+
         .hero {
             max-width: 800px;
             margin: 5rem auto;
@@ -209,83 +289,78 @@
             background-color: var(--accent-color);
         }
 
+        /* Nouveau Pied de page Professionnel */
         footer {
-            text-align: center;
-            padding: 3rem 1rem;
+            background-color: #ffffff;
             border-top: 1px solid var(--border-color);
-            color: var(--muted-text);
+            padding: 4rem 1rem 2rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            padding-bottom: 3rem;
+        }
+
+        .footer-brand h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
             font-size: 0.9rem;
+            color: var(--muted-text);
+            line-height: 1.5;
         }
 
-        @media (max-width: 600px) {
+        .footer-links h5 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--muted-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--muted-text);
+        }
+
+        @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .newsletter-form { flex-direction: column; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <a href="index.html" class="logo">🧪 LABOSEPT</a>
-    </header>
-
-    <main>
-        <!-- Section d'accueil principale -->
-        <section class="hero">
-            <div class="badge-rule">💡 Règle d'or : Gratuit pour tester, Premium pour automatiser</div>
-            <h1>Le laboratoire des micro et auto-entrepreneurs solos</h1>
-            <p>Zéro blabla, de l'action. Découvrez un parcours clair et des outils simples pour lancer, piloter et développer votre activité sans stress.</p>
-        </section>
-
-        <!-- Grille des 3 étapes -->
-        <section class="grid-cibles">
-            <!-- Étape 1 : Valider -->
-            <div class="card">
-                <div>
-                    <span class="tag-status tag-free">Étape 1 : Valider</span>
-                    <h2>💡 Je teste mon idée</h2>
-                    <p>Vous lancez un projet de services, de commerce ou d'artisanat ? Suivez le guide pour valider l'adéquation de votre concept avant de vous lancer.</p>
-                    <ul class="item-list">
-                        <li>🧠 <strong>Trouver mon idée</strong> (Partir de vos compétences)</li>
-                        <li>🧪 <strong>Valider mon concept</strong> (Vérifier la viabilité terrain)</li>
-                        <li>📐 <strong>Bâtir mon modèle</strong> (Définir comment générer vos revenus)</li>
-                    </ul>
-                </div>
-                <a href="etape1-valider.html" class="btn btn-secondary">Découvrir l'Étape 1</a>
-            </div>
-
-            <!-- Étape 2 : Piloter -->
-            <div class="card">
-                <div>
-                    <span class="tag-status tag-premium">Étape 2 : Piloter</span>
-                    <h2>📊 Je gère mes chiffres</h2>
-                    <p>Pilotez votre rentabilité nette et anticipez vos charges. Des outils automatisés conçus pour suivre votre quotidien sans jargon comptable.</p>
-                    <ul class="item-list">
-                        <li>💰 <strong>Fixer mes prix & tarifs</strong> (Grille claire et marge calculée)</li>
-                        <li>📈 <strong>Trouver mon seuil</strong> (Calculer votre rentabilité réelle)</li>
-                        <li>🖥️ <strong>Suivre mon activité</strong> (Tableaux de bord visuels et personnalisés)</li>
-                    </ul>
-                </div>
-                <a href="etape2-piloter.html" class="btn">Découvrir l'Étape 2</a>
-            </div>
-
-            <!-- Étape 3 : Rayonner -->
-            <div class="card">
-                <div>
-                    <span class="tag-status tag-deploy">Étape 3 : Rayonner</span>
-                    <h2>🌐 Je booste ma visibilité en ligne</h2>
-                    <p>Propulsez votre présence sur le web. Attirez des clients grâce à une stratégie claire et un site internet moderne sans frais mensuels.</p>
-                    <ul class="item-list">
-                        <li>🎯 <strong>Choisir mes canaux</strong> (Sélectionner les bons réseaux)</li>
-                        <li>✍️ <strong>Publier du contenu</strong> (Fédérer votre communauté sans panne)</li>
-                        <li>🖥️ <strong>Lancer mon site internet</strong> (Votre vitrine pro sur GitHub et Cloudflare)</li>
-                    </ul>
-                </div>
-                <a href="etape3-rayonner.html" class="btn btn-secondary">Découvrir l'Étape 3</a>
-            </div>
-        </section>
-
-        <!-- Section Inscription Newsletter -->
-        <section class="newsletter-box">
-            <h3>Rejoignez le Labo de Théo</h3>
-            <p>Recevez chaque semaine une astuce actionnable, une fiche pratique ou un outil simple pour structurer votre business solo.</p>
