@@ -212,18 +212,27 @@
             min-height: 3.5rem; /* Aligne le début des listes textuelles */
         }
 
-        /* Liste des puces de contenu */
+              /* Correction de l'alignement des puces textuelles */
         .step-features {
             list-style: none;
-            margin-bottom: 2.5rem;
-            font-size: 0.95rem;
+            margin: 0 0 2.5rem 0;
+            padding: 0;
+            text-align: left; /* Aligne le texte proprement à gauche */
+            width: 100%;
         }
 
         .step-features li {
             margin-bottom: 0.75rem;
+            font-size: 0.95rem;
             display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
+            align-items: center; /* Aligne verticalement l'émoji et le texte */
+            gap: 0.5rem; /* Crée un petit espace propre après l'émoji */
+            line-height: 1.4;
+        }
+
+        .step-features strong {
+            font-weight: 600;
+            color: var(--text-color);
         }
 
         /* Zone des petits boutons alignés en bas */
