@@ -158,44 +158,117 @@
         border: 1px solid #bfdbfe;
     }
 
-        /* Grille globale pour aligner les 3 étapes sur une ligne */
+        /* Grille globale pour aligner les 3 étapes sur une ligne avec de l'espace */
         .steps-wrapper {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Crée 3 colonnes égales */
-            gap: 1.5rem; /* Espace entre les 3 cases */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 3 colonnes responsives */
+            gap: 2.5rem; /* Grand espace élégant entre chaque bloc étape */
             margin-bottom: 5rem;
+            align-items: stretch; /* Force les 3 cartes à avoir exactement la même hauteur */
         }
 
-        /* Ajustement des cases individuelles */
+        /* Styles des blocs étapes individuels */
         .step-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: 14px;
+            padding: 2.5rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Aligne le bouton toujours en bas */
+            justify-content: space-between; /* Pousse les boutons tout en bas */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Titre de l'étape cliquable */
+        .step-title-link {
+            text-decoration: none;
+            color: var(--text-color);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .step-title-link:hover h2 {
+            color: var(--primary);
         }
 
         .step-section h2 {
-            font-size: 1.4rem; /* Légèrement plus petit pour tenir sur une ligne */
+            font-size: 1.45rem;
             font-weight: 700;
-            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: color 0.2s ease;
         }
 
         .step-chapo {
-            font-size: 0.95rem; /* Plus compact pour les colonnes */
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            min-height: 3.5rem; /* Aligne le début des listes textuelles */
         }
 
-        /* On cache la sous-liste des modules pour le format carte (optionnel pour épurer) */
-        .modules-grid {
-            display: none; 
+        /* Liste des puces de contenu */
+        .step-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
         }
+
+        .step-features li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        /* Zone des petits boutons alignés en bas */
+        .action-buttons-row {
+            display: flex;
+            flex-direction: column; /* Par défaut les uns sous les autres sur mobile */
+            gap: 0.6rem;
+            margin-top: auto; /* Force l'ancrage en bas de la carte */
+        }
+
+        /* Style des petits boutons chirurgicaux */
+        .btn-mini {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-mini:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        /* Grand écran : On aligne les boutons sur une même ligne s'il y a de la place */
+        @media (min-width: 1024px) {
+            .action-buttons-row {
+                flex-direction: row;
+                flex-wrap: wrap; /* Permet de passer à la ligne proprement si besoin */
+            }
+            .btn-mini {
+                flex: 1; /* Donne la même largeur à chaque petit bouton */
+                min-width: 80px;
+            }
+        }
+
 
         /* Mobile : Si l'écran est trop petit, on les remet les unes sous les autres */
         @media (max-width: 900px) {
@@ -275,56 +348,82 @@
         <div class="rule-badge">💡 Règle d'or : Gratuit pour tester, Premium pour automatiser</div>
     </section>
 
-      <!-- Conteneur des 3 cases alignées sur une seule ligne -->
+       <!-- Conteneur des 3 cases alignées horizontalement -->
     <div class="steps-wrapper">
 
         <!-- Case Étape 1 -->
         <section class="step-section" id="lancer">
             <div>
-                <h2>💡 Étape 1 : Valider</h2>
-                <p class="step-chapo">Testez la viabilité terrain de votre concept et validez votre modèle économique avant de vous lancer officiellement.</p>
-                <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
-                    <li style="margin-bottom: 0.5rem;">🧠 <strong>Trouver mon idée</strong> de business</li>
-                    <li style="margin-bottom: 0.5rem;">🧪 <strong>Valider mon concept</strong> sur le terrain</li>
-                    <li style="margin-bottom: 0.5rem;">📐 <strong>Bâtir mon modèle</strong> économique solo</li>
+                <!-- Titre cliquable qui mène à la page globale Étape 1 -->
+                <a href="/etape1-valider.html" class="step-title-link" title="Voir toute l'Étape 1">
+                    <h2>💡 Étape 1 : Valider</h2>
+                </a>
+                <p class="step-chapo">Testez la viabilité terrain de votre concept et validez votre modèle économique avant de vous lancer.</p>
+                
+                <ul class="step-features">
+                    <li>🧠 <strong>Trouver mon idée</strong> de business</li>
+                    <li>🧪 <strong>Valider mon concept</strong> sur le terrain</li>
+                    <li>📐 <strong>Bâtir mon modèle</strong> solo</li>
                 </ul>
             </div>
-            <a href="/etape1-valider.html" class="btn-discover">Découvrir l'Étape 1 &rarr;</a>
+            
+            <!-- Les petits boutons chirurgicaux en ligne tout en bas -->
+            <div class="action-buttons-row">
+                <a href="/trouver-idee.html" class="btn-mini">🧠 Idée</a>
+                <a href="/valider-concept.html" class="btn-mini">🧪 Concept</a>
+                <a href="/batir-modele.html" class="btn-mini">📐 Modèle</a>
+            </div>
         </section>
 
         <!-- Case Étape 2 -->
         <section class="step-section" id="piloter">
             <div>
-                <h2>📊 Étape 2 : Piloter</h2>
-                <p class="step-chapo">Calculez votre rentabilité nette, anticipez vos charges sociales (URSSAF) et suivez votre chiffre d'affaires sans jargon.</p>
-                <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
-                    <li style="margin-bottom: 0.5rem;">💰 <strong>Fixer mes prix</strong> & tarifs freelances</li>
-                    <li style="margin-bottom: 0.5rem;">📈 <strong>Calculer mon seuil</strong> de rentabilité</li>
-                    <li style="margin-bottom: 0.5rem;">🖥 <strong>Suivre mon activité</strong> en temps réel</li>
+                <!-- Titre cliquable qui mène à la page globale Étape 2 -->
+                <a href="/etape2-piloter.html" class="step-title-link" title="Voir toute l'Étape 2">
+                    <h2>📊 Étape 2 : Piloter</h2>
+                </a>
+                <p class="step-chapo">Calculez votre rentabilité nette, fixez vos prix de freelance et suivez votre chiffre d'affaires sans jargon.</p>
+                
+                <ul class="step-features">
+                    <li>💰 <strong>Fixer mes prix</strong> & tarifs freelances</li>
+                    <li>📈 <strong>Calculer mon seuil</strong> de rentabilité</li>
+                    <li>🖥 <strong>Suivre mon activité</strong> en temps réel</li>
                 </ul>
             </div>
-            <a href="/etape2-piloter.html" class="btn-discover">Découvrir l'Étape 2 &rarr;</a>
+            
+            <!-- Les petits boutons chirurgicaux en ligne tout en bas -->
+            <div class="action-buttons-row">
+                <a href="/outils/calcul-tarif-horaire" class="btn-mini">💰 Tarifs</a>
+                <a href="/outils/simulateur-seuil-rentabilite" class="btn-mini">📈 Seuil</a>
+                <a href="/suivre-activite.html" class="btn-mini">🖥 Piloter</a>
+            </div>
         </section>
 
         <!-- Case Étape 3 -->
         <section class="step-section" id="rayonner">
             <div>
-                <h2>🌐 Étape 3 : Rayonner</h2>
-                <p class="step-chapo">Attirez des clients de manière organique, déployez votre stratégie de contenu et lancez votre site vitrine gratuitement.</p>
-                <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
-                    <li style="margin-bottom: 0.5rem;">🎯 <strong>Choisir mes canaux</strong> d'acquisition</li>
-                    <li style="margin-bottom: 0.5rem;">✍ <strong>Publier du contenu</strong> engageant</li>
-                    <li style="margin-bottom: 0.5rem;">🖥 <strong>Lancer mon site</strong> web gratuitement</li>
+                <!-- Titre cliquable qui mène à la page globale Étape 3 -->
+                <a href="/etape3-rayonner.html" class="step-title-link" title="Voir toute l'Étape 3">
+                    <h2>🌐 Étape 3 : Rayonner</h2>
+                </a>
+                <p class="step-chapo">Attirez des clients de manière organique, déployez votre contenu et lancez votre site vitrine gratuitement.</p>
+                
+                <ul class="step-features">
+                    <li>🎯 <strong>Choisir mes canaux</strong> d'acquisition</li>
+                    <li>✍ <strong>Publier du contenu</strong> engageant</li>
+                    <li>🖥 <strong>Lancer mon site</strong> internet pro</li>
                 </ul>
             </div>
-            <a href="/etape3-rayonner.html" class="btn-discover">Découvrir l'Étape 3 &rarr;</a>
+            
+            <!-- Les petits boutons chirurgicaux en ligne tout en bas -->
+            <div class="action-buttons-row">
+                <a href="/choisir-canaux.html" class="btn-mini">🎯 Canaux</a>
+                <a href="/publier-contenu.html" class="btn-mini">✍ Contenu</a>
+                <a href="/lancer-site.html" class="btn-mini">🖥 Site Web</a>
+            </div>
         </section>
 
     </div>
-        </div>
-        
-        <a href="/visibilite-web-freelance/" class="btn-discover">Déployer ma stratégie web &rarr;</a>
-    </section>
 </main>
     <!-- Styles CSS du Footer (À insérer idéalement avant la balise </style> dans le <head>) -->
     <style>
