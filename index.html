@@ -56,7 +56,7 @@
             padding: 0 1.5rem;
         }
 
-        /* Styles du Header & de la Navigation */
+        /* Styles du Header & de la igation */
         header {
             background-color: var(--card-bg);
             border-bottom: 1px solid var(--border);
@@ -158,37 +158,52 @@
         border: 1px solid #bfdbfe;
     }
 
-    .step-section {
-        margin-bottom: 5rem;
-        background-color: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 2.5rem;
-    }
+        /* Grille globale pour aligner les 3 étapes sur une ligne */
+        .steps-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Crée 3 colonnes égales */
+            gap: 1.5rem; /* Espace entre les 3 cases */
+            margin-bottom: 5rem;
+        }
 
-    .step-section h2 {
-        font-size: 1.75rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+        /* Ajustement des cases individuelles */
+        .step-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Aligne le bouton toujours en bas */
+        }
 
-    .step-chapo {
-        font-size: 1.1rem;
-        color: var(--text-muted);
-        margin-bottom: 2rem;
-        max-width: 850px;
-    }
+        .step-section h2 {
+            font-size: 1.4rem; /* Légèrement plus petit pour tenir sur une ligne */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    .modules-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
+        .step-chapo {
+            font-size: 0.95rem; /* Plus compact pour les colonnes */
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
 
+        /* On cache la sous-liste des modules pour le format carte (optionnel pour épurer) */
+        .modules-grid {
+            display: none; 
+        }
+
+        /* Mobile : Si l'écran est trop petit, on les remet les unes sous les autres */
+        @media (max-width: 900px) {
+            .steps-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+        
     .module-card {
         background-color: var(--bg-color);
         border: 1px solid var(--border);
@@ -240,15 +255,15 @@
     <header>
         <div class="container nav-container">
             <a href="/" class="logo">🧪 LABOSEPT</a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="/">🔬 Accueil</a></li>
-                    <li><a href="/lancer-projet-microentreprise/">💡 Lancer mon projet</a></li>
-                    <li><a href="/comptabilite-autoentrepreneur/">📊 Gérer mes chiffres</a></li>
-                    <li><a href="/visibilite-web-freelance/">🌐 Trouver des clients</a></li>
-                    <li><a href="/boite-a-outils/">🛠️ Boîte à outils</a></li>
-                </ul>
-            </nav>
+           <nav>
+    <ul class="nav-links">
+        <li><a href="/">🔬 Accueil</a></li>
+        <li><a href="/etape1-valider.html">💡 Lancer mon projet</a></li>
+        <li><a href="/etape2-piloter.html">📊 Gérer mes chiffres</a></li>
+        <li><a href="/etape3-rayonner.html">🌐 Trouver des clients</a></li>
+        <li><a href="/boite-a-outils.html">🛠️ Boîte à outils</a></li>
+    </ul>
+</nav>
         </div>
     </header>
   
