@@ -119,8 +119,121 @@
             .nav-links a {
                 font-size: 0.9rem;
             }
-        }
-    </style>
+        }    
+    /* Styles du Contenu Principal (Main) */
+    main {
+        padding: 3rem 0;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 4rem 0 5rem 0;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 4rem;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        letter-spacing: -0.05rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .rule-badge {
+        display: inline-block;
+        background-color: #eff6ff;
+        color: var(--primary);
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.9rem;
+        border: 1px solid #bfdbfe;
+    }
+
+    .step-section {
+        margin-bottom: 5rem;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 2.5rem;
+    }
+
+    .step-section h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .step-chapo {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        max-width: 850px;
+    }
+
+    .modules-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .module-card {
+        background-color: var(--bg-color);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.5rem;
+    }
+
+    .module-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .module-card p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+    }
+
+    .btn-discover {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--primary);
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        transition: background-color 0.2s ease;
+    }
+
+    .btn-discover:hover {
+        background-color: var(--primary-hover);
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 2rem; }
+        .hero p { font-size: 1.1rem; }
+        .step-section { padding: 1.5rem; }
+    }
+</style>
 </head>
 <body>
 
@@ -138,119 +251,7 @@
             </nav>
         </div>
     </header>
-        /* Styles du Contenu Principal (Main) */
-        main {
-            padding: 3rem 0;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 4rem 0 5rem 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 4rem;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.05rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 1.5rem auto;
-        }
-
-        .rule-badge {
-            display: inline-block;
-            background-color: #eff6ff;
-            color: var(--primary);
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            border: 1px solid #bfdbfe;
-        }
-
-        .step-section {
-            margin-bottom: 5rem;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-
-        .step-section h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .step-chapo {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 850px;
-        }
-
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .module-card {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
-
-        .module-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .module-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .btn-discover {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: var(--primary);
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn-discover:hover {
-            background-color: var(--primary-hover);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
-            .step-section { padding: 1.5rem; }
-        }
+  
 <main class="container">
     <!-- Section Héro -->
     <section class="hero">
