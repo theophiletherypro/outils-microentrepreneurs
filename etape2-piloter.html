@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étape 2 : Piloter mes chiffres — Labosept</title>
+    <meta name="description" content="Prenez le contrôle de votre rentabilité. Des outils de gestion visuels et des tableurs automatisés sur-mesure pour votre auto-entreprise.">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #0066cc;
+            --border-color: #e5e5e5;
+            --card-bg: #ffffff;
+            --muted-text: #666666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--muted-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .tag-stage {
+            display: inline-block;
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: var(--muted-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .smoke-box {
+            background-color: #f9f9f9;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .smoke-box h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .smoke-box p {
+            color: var(--muted-text);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .badge-discount {
+            display: inline-block;
+            background-color: #fce8e6;
+            color: #c5221f;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .email-form input[type="email"] {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .email-form button {
+            background-color: var(--text-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .email-form button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .sub-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .step-sub-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .step-sub-card h3 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .step-sub-card p {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .custom-section {
+            background-color: #fdf7e7;
+            border: 1px solid #f3e5c8;
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .custom-section h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .custom-section p {
+            color: #333;
+            max-width: 650px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 1rem 2rem 1rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--muted-text);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .email-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">🧪 LABOSEPT</a>
+        <nav class="nav-links">
+            <a href="index.html">← Revenir à l'accueil</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- En-tête de la page -->
+        <section class="page-header">
+            <span class="tag-stage">Étape 2 : Gestion & Pilotage</span>
+            <h1>Je gère mes chiffres</h1>
+            <p class="lead">Pilotez votre rentabilité nette sans vous transformer en comptable professionnel. Découvrez des modèles de gestion automatisés construits pour vous donner une visibilité totale sur votre argent.</p>
+        </section>
+
+        <!-- Bloc Smoke Test : Capture d'emails et mesure de l'intérêt -->
+        <section class="smoke-box">
+            <span class="badge-discount">🔥 Offre de lancement : -50% pour les 50 premiers</span>
+            <h2>📊 Le Tableur de Gestion Pro arrive bientôt</h2>
+            <p>Nos équipes finalisent le tableau de bord automatisé ultime pour les solos. Inscrivez-vous pour être alerté dès l'ouverture et réserver votre accès à moitié prix.</p>
+            <form class="email-form" action="#" method="POST">
+                <input type="email" placeholder="Votre adresse email professionnelle..." required>
+                <button type="submit">Rejoindre la liste d'attente</button>
+            </form>
+        </section>
+
+        <!-- Grille des 3 modules financiers déclinés -->
+        <section class="sub-steps-grid">
+            
+            <!-- Module 1 -->
+            <div class="step-sub-card">
+                <div>
+                    <span class="info-badge">Inclus dans le pack</span>
+                    <h3>💰 Fixer mes prix & tarifs</h3>
+                    <p>Bâtissez une grille tarifaire indiscutable. Calculez précisément vos coûts de revient et définissez la marge ou le coefficient à appliquer pour obtenir un prix juste.</p>
+                </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="step-sub-card">
+                <div>
+                    <span class="info-badge">Inclus dans le pack</span>
+                    <h3>📈 Trouver mon seuil</h3>
+                    <p>Calculez votre point mort de manière ultra-simplifiée. Sachez exactement quel chiffre d'affaires vous devez encaisser chaque mois pour commencer à vous verser un vrai salaire.</p>
+                </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="step-sub-card">
+                <div>
+                    <span class="info-badge">Sur-mesure possible</span>
+                    <h3>🖥️ Suivre mon activité</h3>
+                    <p>Visualisez la santé financière de votre projet en un coup d'œil. Un tableau de bord visuel connecté à votre livre de recettes pour anticiper vos charges et vos plafonds Urssaf.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section de sur-mesure / Prestation haut de gamme -->
+        <section class="custom-section">
+            <h3>Besoin d'un tableau de bord 100% personnalisé ?</h3>
+            <p>Votre activité a des besoins uniques ? Qu'il s'agisse de gérer un catalogue de produits complexes, des commissions spécifiques ou un suivi de trésorerie avancé, je peux construire votre outil sur-mesure. Discutons de vos besoins et de vos fichiers lors d'un premier échange.</p>
+            <form class="email-form" action="#" method="POST">
+                <input type="email" placeholder="Votre adresse email pour en discuter..." required>
+                <button type="submit">Demander une personnalisation</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
