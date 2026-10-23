@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Balises SEO -->
+    <title>Boîte à Outils pour Solopreneurs & Systèmes de Gestion | Labosept</title>
+    <meta name="description" content="Découvrez nos mini-simulateurs et méthodes interactives basées sur les lois universelles de gestion (Pareto, Parkinson, Laborit) pour optimiser votre quotidien solo.">
+    <link rel="canonical" href="https://labosept.fr">
+
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text-muted: #475569;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.5rem;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            text-decoration: none;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Section Titre */
+        main {
+            padding: 3rem 0;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 4rem 0 3rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* Grille d'Outils de Gestion (Ligne Horizontale) */
+        .tools-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+            align-items: stretch;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .tool-card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tool-benefit {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .btn-action-tool {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--text-color);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .btn-action-tool:hover {
+            background-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 5rem 0 3rem 0;
+            margin-top: 5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            max-width: 360px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 400px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .btn-submit {
+            background-color: var(--text-color);
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-links h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            color: var(--text-color);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsivité */
+        @media (max-width: 900px) {
+            .nav-container { flex-direction: column; height: auto; padding: 1rem 0; gap: 1rem; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .page-header h1 { font-size: 2rem; }
+            .tools-wrapper { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .newsletter-form { flex-direction: column; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de Navigation unifiée -->
+    <header>
+        <div class="container nav-container">
+            <a href="/" class="logo">🧪 LABOSEPT</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">🔬 Accueil</a></li>
+                    <li><a href="/etape1-valider.html">💡 Lancer mon projet</a></li>
+                    <li><a href="/etape2-piloter.html">📊 Gérer mes chiffres</a></li>
+                    <li><a href="/etape3-rayonner.html">🌐 Trouver des clients</a></li>
+                    <li><a href="/boite-a-outils.html">🛠️ Boîte à outils</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Zone Contenu Central -->
+    <main class="container">
+        <header class="page-header">
+            <h1>Votre boîte à outils de solopreneur</h1>
+            <p>Moins de théorie, plus de systèmes. Découvrez des mini-simulateurs et des méthodes d'organisation interactives à activer en 5 minutes pour optimiser votre business solo.</p>
+        </header>
+
+        <!-- Grille des 3 Lois / Outils Alignés -->
+        <div class="tools-wrapper">
+
+            <!-- Outil 1 : Parkinson -->
+            <section class="tool-card">
+                <div>
+                    <h2>⚡ Le Compresseur de Temps</h2>
+                    <p class="tool-benefit">Principe : Loi de Parkinson</p>
+                    <p class="tool-desc">Apprenez à diviser vos délais par deux pour forcer votre cerveau à se concentrer sur l'essentiel et arrêter d'étaler des tâches simples sur des semaines entières.</p>
+                </div>
+                <a href="/outils/deadlines-forcees.html" class="btn-action-tool">Lancer le Chrono &rarr;</a>
+            </section>
+
+            <!-- Outil 2 : Pareto -->
+            <section class="tool-card">
+                <div>
+                    <h2>🎯 Le Filtre 80/20 Business</h2>
+                    <p class="tool-benefit">Principe : Loi de Pareto</p>
