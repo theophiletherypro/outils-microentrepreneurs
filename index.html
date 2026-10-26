@@ -157,6 +157,21 @@
         font-size: 0.9rem;
         border: 1px solid #bfdbfe;
     }
+        /* --- REPÈRE : GESTION DU SOULIGNEMENT DES TITRES --- */
+        .step-title-link {
+            text-decoration: none; /* On retire le soulignement par défaut sur tout le bloc (icône comprise) */
+        }
+
+        .step-title-link h2 span {
+            text-decoration: underline; /* On applique le soulignement UNIQUEMENT sur le texte dans le span */
+            text-decoration-color: var(--text-color); /* Optionnel : force la couleur du trait */
+        }
+
+        /* Effet au survol : seul le texte change de couleur et de trait */
+        .step-title-link:hover h2 span {
+            color: var(--primary);
+            text-decoration-color: var(--primary);
+        }
 
         /* Grille globale pour aligner les 3 étapes sur une ligne avec de l'espace */
                /* --- REPÈRE : STYLES DU CHEMINEMENT EN 3 COLONNES --- */
@@ -386,9 +401,10 @@
         <!-- Case Étape 1 -->
         <section class="step-section" id="lancer">
             <div>
-                <a href="/etape1-valider.html" class="step-title-link" title="Voir toute l'Étape 1">
-                    <h2>💡 Étape 1 : Valider</h2>
-                </a>
+                <!-- --- REPÈRE HTML : TITRE DE L'ÉTAPE 1 MODIFIÉ --- -->
+<a href="/etape1-valider.html" class="step-title-link" title="Voir toute l'Étape 1">
+    <h2>💡 <span>Étape 1 : Valider</span></h2>
+</a>
                 <p class="step-chapo">Testez la viabilité terrain de votre concept et validez votre modèle économique avant de vous lancer.</p>
                 
                 <!-- --- REPÈRE HTML : EXEMPLE DE STRUCTURE POUR L'ALIGNEMENT DES PUCES --- -->
@@ -406,9 +422,11 @@
         <!-- Case Étape 2 -->
         <section class="step-section" id="piloter">
             <div>
-                <a href="/etape2-piloter.html" class="step-title-link" title="Voir toute l'Étape 2">
-                    <h2>📊 Étape 2 : Piloter</h2>
-                </a>
+              <!-- --- REPÈRE HTML : TITRE ÉTAPE 2 (ÉMOJI NON SOULIGNÉ) --- -->
+<a href="/etape2-piloter.html" class="step-title-link" title="Voir toute l'Étape 2">
+    <h2>📊 <span>Étape 2 : Piloter</span></h2>
+</a>
+
                 <p class="step-chapo">Calculez votre rentabilité nette, fixez vos prix de freelance et suivez votre chiffre d'affaires sans jargon.</p>
                 
              <!-- --- REPÈRE HTML : CONFIGURATION DE L'ÉTAPE 2 (ALIGNEMENT PARFAIT) --- -->
@@ -426,9 +444,11 @@
         <!-- Case Étape 3 -->
         <section class="step-section" id="rayonner">
             <div>
-                <a href="/etape3-rayonner.html" class="step-title-link" title="Voir toute l'Étape 3">
-                    <h2>🌐 Étape 3 : Rayonner</h2>
-                </a>
+              <!-- --- REPÈRE HTML : TITRE ÉTAPE 3 (ÉMOJI NON SOULIGNÉ) --- -->
+<a href="/etape3-rayonner.html" class="step-title-link" title="Voir toute l'Étape 3">
+    <h2>🌐 <span>Étape 3 : Rayonner</span></h2>
+</a>
+
                 <p class="step-chapo">Attirez des clients de manière organique, déployez votre contenu et lancez votre site vitrine gratuitement.</p>
                 
               <!-- --- REPÈRE HTML : CONFIGURATION DE L'ÉTAPE 3 (ALIGNEMENT PARFAIT) --- -->
