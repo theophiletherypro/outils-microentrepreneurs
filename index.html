@@ -200,16 +200,18 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
-              /* --- REPÈRE : FORCER LES TITRES SUR UNE SEULE LIGNE LÉGÈRE --- */
+              /* --- REPÈRE : ALIGNEMENT STRICT À GAUCHE DU TITRE --- */
         .step-section h2 {
             font-size: 1.45rem;
             font-weight: 700;
-            display: flex;             /* Aligne l'icône et le texte côte à côte */
-            align-items: center;       /* Centre verticalement l'icône avec le texte */
-            gap: 0.5rem;               /* Espace parfait entre l'icône et le texte */
-            white-space: nowrap;       /* Interdit mathématiquement le passage à la ligne */
-            text-align: left;          /* Force l'alignement à gauche */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* <-- FORCE l'icône et le texte à se caler tout au début (à gauche) */
+            gap: 0.5rem;
+            white-space: nowrap;
+            text-align: left;
             color: var(--text-color);
+            margin-bottom: 1.25rem;       /* Légèrement augmenté pour une aération parfaite */
         }
 
 
