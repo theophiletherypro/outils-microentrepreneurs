@@ -200,15 +200,18 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
+              /* --- REPÈRE : FORCER LES TITRES SUR UNE SEULE LIGNE LÉGÈRE --- */
         .step-section h2 {
             font-size: 1.45rem;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            display: flex;             /* Aligne l'icône et le texte côte à côte */
+            align-items: center;       /* Centre verticalement l'icône avec le texte */
+            gap: 0.5rem;               /* Espace parfait entre l'icône et le texte */
+            white-space: nowrap;       /* Interdit mathématiquement le passage à la ligne */
+            text-align: left;          /* Force l'alignement à gauche */
             color: var(--text-color);
         }
+
 
         .step-chapo {
             font-size: 0.95rem;
