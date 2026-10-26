@@ -210,18 +210,21 @@
             width: 100%;
         }
 
+              /* --- REPÈRE : RECOLLER LE TEXTE DES PUCES NATURELLEMENT --- */
         .step-features li {
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            line-height: 1.4;
+            display: block;            /* Supprime l'effet flex qui écartait les mots */
+            text-align: left;          /* Aligne tout le texte à gauche */
+            line-height: 1.5;          /* Offre un espace d'aération vertical agréable */
         }
 
         .step-features strong {
             font-weight: 600;
             color: var(--text-color);
+            display: inline;           /* Force le texte en gras à rester fusionné avec le reste de la phrase */
+            margin: 0;
+            padding: 0;
         }
 
         /* Le nouveau bouton unique par étape */
