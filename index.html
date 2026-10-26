@@ -210,22 +210,28 @@
             width: 100%;
         }
 
-              /* --- REPÈRE : RECOLLER LE TEXTE DES PUCES NATURELLEMENT --- */
+              /* --- REPÈRE CSS : ALIGNEMENT TEXTUEL PARFAIT HORS ÉMOJI --- */
         .step-features li {
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
-            display: block;            /* Supprime l'effet flex qui écartait les mots */
-            text-align: left;          /* Aligne tout le texte à gauche */
-            line-height: 1.5;          /* Offre un espace d'aération vertical agréable */
+            display: flex;             /* Active le mode Flexbox pour aligner les 2 spans côte à côte */
+            align-items: flex-start;   /* Aligne l'émoji sur la première ligne de texte en haut */
+            gap: 0.5rem;               /* Crée l'espace fixe parfait entre l'émoji et le texte */
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        /* Force le second span (le texte) à occuper tout l'espace restant sans s'éparpiller */
+        .step-features li > span:last-child {
+            flex: 1;
         }
 
         .step-features strong {
             font-weight: 600;
             color: var(--text-color);
-            display: inline;           /* Force le texte en gras à rester fusionné avec le reste de la phrase */
-            margin: 0;
-            padding: 0;
+            display: inline;
         }
+
 
         /* Le nouveau bouton unique par étape */
         .btn-step {
@@ -385,11 +391,13 @@
                 </a>
                 <p class="step-chapo">Testez la viabilité terrain de votre concept et validez votre modèle économique avant de vous lancer.</p>
                 
-                <ul class="step-features">
-                    <li>🧠 <strong>Trouver mon idée</strong> de business</li>
-                    <li>🧪 <strong>Valider mon concept</strong> sur le terrain</li>
-                    <li>📐 <strong>Bâtir mon modèle</strong> solo</li>
-                </ul>
+                <!-- --- REPÈRE HTML : EXEMPLE DE STRUCTURE POUR L'ALIGNEMENT DES PUCES --- -->
+<ul class="step-features">
+    <li><span>🧠</span> <span><strong>Trouver mon idée</strong> de business</span></li>
+    <li><span>🧪</span> <span><strong>Valider mon concept</strong> sur le terrain</span></li>
+    <li><span>📐</span> <span><strong>Bâtir mon modèle</strong> solo</span></li>
+</ul>
+
             </div>
             <!-- Bouton unique d'action direct vers la page de l'étape -->
             <a href="/etape1-valider.html" class="btn-step">Découvrir l'Étape 1 →</a>
@@ -403,11 +411,13 @@
                 </a>
                 <p class="step-chapo">Calculez votre rentabilité nette, fixez vos prix de freelance et suivez votre chiffre d'affaires sans jargon.</p>
                 
-                <ul class="step-features">
-                    <li>💰 <strong>Fixer mes prix</strong> & tarifs freelances</li>
-                    <li>📈 <strong>Calculer mon seuil</strong> de rentabilité</li>
-                    <li>🖥 <strong>Suivre mon activité</strong> en temps réel</li>
-                </ul>
+             <!-- --- REPÈRE HTML : CONFIGURATION DE L'ÉTAPE 2 (ALIGNEMENT PARFAIT) --- -->
+<ul class="step-features">
+    <li><span>💰</span> <span><strong>Fixer mes prix</strong> & tarifs freelances</span></li>
+    <li><span>📈</span> <span><strong>Calculer mon seuil</strong> de rentabilité</span></li>
+    <li><span>🖥</span> <span><strong>Suivre mon activité</strong> en temps réel</span></li>
+</ul>
+
             </div>
             <!-- Bouton unique d'action direct vers la page de l'étape -->
             <a href="/etape2-piloter.html" class="btn-step">Découvrir l'Étape 2 →</a>
@@ -421,11 +431,13 @@
                 </a>
                 <p class="step-chapo">Attirez des clients de manière organique, déployez votre contenu et lancez votre site vitrine gratuitement.</p>
                 
-                <ul class="step-features">
-                    <li>🎯 <strong>Choisir mes canaux</strong> d'acquisition</li>
-                    <li>✍ <strong>Publier du contenu</strong> engageant</li>
-                    <li>🖥 <strong>Lancer mon site</strong> internet pro</li>
-                </ul>
+              <!-- --- REPÈRE HTML : CONFIGURATION DE L'ÉTAPE 3 (ALIGNEMENT PARFAIT) --- -->
+<ul class="step-features">
+    <li><span>🎯</span> <span><strong>Choisir mes canaux</strong> d'acquisition</span></li>
+    <li><span>✍</span> <span><strong>Publier du contenu</strong> engageant</span></li>
+    <li><span>🖥</span> <span><strong>Lancer mon site</strong> internet pro</span></li>
+</ul>
+
             </div>
             <!-- Bouton unique d'action direct vers la page de l'étape -->
             <a href="/etape3-rayonner.html" class="btn-step">Découvrir l'Étape 3 →</a>
