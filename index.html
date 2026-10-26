@@ -260,28 +260,36 @@
             color: var(--text-color);
         }
 
+              /* --- REPÈRE : DESIGN EN RESSORTES HORIZONTALES (3 LIGNES) --- */
         .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column; /* Aligne les cartes les unes sous les autres */
+            gap: 1.25rem; /* Espace plus serré et élégant entre les lignes */
         }
 
         .resource-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 1.75rem;
+            padding: 1.5rem 2rem;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            align-items: center; /* Aligne verticalement le contenu et le lien */
+            justify-content: space-between; /* Pousse les textes à gauche et le lien à droite */
             text-decoration: none;
             color: inherit;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            gap: 2rem;
         }
 
         .resource-card:hover {
-            transform: translateY(-2px);
+            transform: translateX(4px); /* Petit effet dynamique vers la droite au survol */
             border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Conteneur interne pour bloquer la largeur des textes à gauche */
+        .resource-content {
+            flex: 1;
         }
 
         .resource-meta {
@@ -290,39 +298,51 @@
             letter-spacing: 0.05rem;
             color: var(--primary);
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
+            display: block;
         }
 
         .resource-card h3 {
             font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.25rem;
             color: var(--text-color);
         }
 
         .resource-card p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0; /* Plus besoin de marge basse */
         }
 
         .resource-link-text {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--primary);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            margin-top: auto;
+            white-space: nowrap; /* Empêche le bouton de se couper sur deux lignes */
+            background-color: #eff6ff; /* Petit fond discret style badge pour le bouton */
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
         }
-    /* --- REPÈRE : AJUSTEMENTS RESPONSIVES POUR MOBILES --- */
-    @media (max-width: 768px) {
-        .hero h1 { font-size: 2rem; }
-        .hero p { font-size: 1.1rem; }
-        .step-section { padding: 1.5rem; }
-        .recent-resources-section { padding-top: 2.5rem; }
-        .section-title { font-size: 1.5rem; }
-    }
+
+        .resource-card:hover .resource-link-text {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        /* Version Mobile : on réempile proprement pour les petits écrans */
+        @media (max-width: 768px) {
+            .resource-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            .resource-link-text {
+                align-self: flex-start;
+            }
+        }
 
 </style>
 </head>
@@ -411,14 +431,15 @@
     </div>
 
     <!-- --- REPÈRE HTML : LES 3 DERNIÈRES RESSOURCES CRÉÉES RÉCEMMENT --- -->
+       <!-- --- REPÈRE HTML : LES 3 RESSOURCES EN LISTE --- -->
     <section class="recent-resources-section">
         <h2 class="section-title">✨ Dernières ressources et guides disponibles</h2>
         
         <div class="resources-grid">
             
-            <!-- Carte Ressource 1 -->
+            <!-- Ligne 1 -->
             <a href="/outils/calcul-tarif-horaire" class="resource-card">
-                <div>
+                <div class="resource-content">
                     <span class="resource-meta">Outil / Calculateur</span>
                     <h3>Simulateur de Tarif Horaire Freelance</h3>
                     <p>Déterminez votre taux journalier ou horaire minimum pour couvrir vos charges et votre salaire idéal sans faire d'erreur.</p>
@@ -426,9 +447,9 @@
                 <span class="resource-link-text">Utiliser l'outil →</span>
             </a>
 
-            <!-- Carte Ressource 2 -->
+            <!-- Ligne 2 -->
             <a href="/outils/simulateur-seuil-rentabilite" class="resource-card">
-                <div>
+                <div class="resource-content">
                     <span class="resource-meta">Outil / Gestion</span>
                     <h3>Calculateur de Seuil de Rentabilité</h3>
                     <p>Découvrez le chiffre d'affaires exact que vous devez réaliser chaque mois pour commencer à dégager de vrais bénéfices.</p>
@@ -436,9 +457,9 @@
                 <span class="resource-link-text">Calculer mon seuil →</span>
             </a>
 
-            <!-- Carte Ressource 3 -->
+            <!-- Ligne 3 -->
             <a href="/valider-concept.html" class="resource-card">
-                <div>
+                <div class="resource-content">
                     <span class="resource-meta">Guide Pratique</span>
                     <h3>La Méthode Terrain pour Valider son Idée</h3>
                     <p>Un plan de route visuel pour confronter votre offre aux réalités du marché et trouver vos premiers clients sans budget.</p>
@@ -448,6 +469,7 @@
 
         </div>
     </section>
+
 
 </main>
 
