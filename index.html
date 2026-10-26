@@ -159,11 +159,12 @@
     }
 
         /* Grille globale pour aligner les 3 étapes sur une ligne avec de l'espace */
+               /* --- REPÈRE : STYLES DU CHEMINEMENT EN 3 COLONNES --- */
         .steps-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 3 colonnes responsives */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 colonnes responsives */
             gap: 2.5rem; /* Grand espace élégant entre chaque bloc étape */
-            margin-bottom: 5rem;
+            margin-bottom: 6rem;
             align-items: stretch; /* Force les 3 cartes à avoir exactement la même hauteur */
         }
 
@@ -175,7 +176,7 @@
             padding: 2.5rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Pousse les boutons tout en bas */
+            justify-content: space-between; /* Pousse le bouton d'action tout en bas */
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -184,40 +185,28 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
-        /* Titre de l'étape cliquable */
-        .step-title-link {
-            text-decoration: none;
-            color: var(--text-color);
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .step-title-link:hover h2 {
-            color: var(--primary);
-        }
-
         .step-section h2 {
             font-size: 1.45rem;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: color 0.2s ease;
+            margin-bottom: 1rem;
+            color: var(--text-color);
         }
 
         .step-chapo {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
-            min-height: 3.5rem; /* Aligne le début des listes textuelles */
+            margin-bottom: 1.5rem;
+            min-height: 3rem; /* Aligne le début des listes textuelles */
         }
 
-              /* Correction de l'alignement des puces textuelles */
         .step-features {
             list-style: none;
             margin: 0 0 2.5rem 0;
             padding: 0;
-            text-align: left; /* Aligne le texte proprement à gauche */
+            text-align: left;
             width: 100%;
         }
 
@@ -225,8 +214,8 @@
             margin-bottom: 0.75rem;
             font-size: 0.95rem;
             display: flex;
-            align-items: center; /* Aligne verticalement l'émoji et le texte */
-            gap: 0.5rem; /* Crée un petit espace propre après l'émoji */
+            align-items: center;
+            gap: 0.5rem;
             line-height: 1.4;
         }
 
@@ -235,101 +224,106 @@
             color: var(--text-color);
         }
 
-        /* Zone des petits boutons alignés en bas */
-        .action-buttons-row {
-            display: flex;
-            flex-direction: column; /* Par défaut les uns sous les autres sur mobile */
-            gap: 0.6rem;
-            margin-top: auto; /* Force l'ancrage en bas de la carte */
-        }
-
-        /* Style des petits boutons chirurgicaux */
-        .btn-mini {
+        /* Le nouveau bouton unique par étape */
+        .btn-step {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--primary);
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.85rem;
-            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
+            transition: background-color 0.2s ease;
+            margin-top: auto; /* Force l'ancrage mathématique au bas de la boîte */
             text-align: center;
         }
 
-        .btn-mini:hover {
-            background-color: var(--primary);
-            color: #ffffff;
-            border-color: var(--primary);
+        .btn-step:hover {
+            background-color: var(--primary-hover);
         }
 
-        /* Grand écran : On aligne les boutons sur une même ligne s'il y a de la place */
-        @media (min-width: 1024px) {
-            .action-buttons-row {
-                flex-direction: row;
-                flex-wrap: wrap; /* Permet de passer à la ligne proprement si besoin */
-            }
-            .btn-mini {
-                flex: 1; /* Donne la même largeur à chaque petit bouton */
-                min-width: 80px;
-            }
+        /* --- REPÈRE : STYLES DE LA NOUVELLE SECTION RESSOURCES --- */
+        .recent-resources-section {
+            border-top: 1px solid var(--border);
+            padding-top: 4rem;
+            margin-top: 2rem;
         }
 
-
-        /* Mobile : Si l'écran est trop petit, on les remet les unes sous les autres */
-        @media (max-width: 900px) {
-            .steps-wrapper {
-                grid-template-columns: 1fr;
-            }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
         }
-        
-    .module-card {
-        background-color: var(--bg-color);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 1.5rem;
-    }
 
-    .module-card h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-    .module-card p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-    }
+        .resource-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
 
-    .btn-discover {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background-color: var(--primary);
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 600;
-        padding: 0.75rem 1.5rem;
-        border-radius: 6px;
-        font-size: 0.95rem;
-        transition: background-color 0.2s ease;
-    }
+        .resource-card:hover {
+            transform: translateY(-2px);
+            border-color: #cbd5e1;
+        }
 
-    .btn-discover:hover {
-        background-color: var(--primary-hover);
-    }
+        .resource-meta {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
 
+        .resource-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+
+        .resource-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-link-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: auto;
+        }
+    /* --- REPÈRE : AJUSTEMENTS RESPONSIVES POUR MOBILES --- */
     @media (max-width: 768px) {
         .hero h1 { font-size: 2rem; }
         .hero p { font-size: 1.1rem; }
         .step-section { padding: 1.5rem; }
+        .recent-resources-section { padding-top: 2.5rem; }
+        .section-title { font-size: 1.5rem; }
     }
+
 </style>
 </head>
 <body>
@@ -357,13 +351,12 @@
         <div class="rule-badge">💡 Règle d'or : Gratuit pour tester, Premium pour automatiser</div>
     </section>
 
-       <!-- Conteneur des 3 cases alignées horizontalement -->
+    <!-- --- REPÈRE HTML : LES 3 ÉTAPES EN COLONNES (VERSION NETTOYÉE) --- -->
     <div class="steps-wrapper">
 
         <!-- Case Étape 1 -->
         <section class="step-section" id="lancer">
             <div>
-                <!-- Titre cliquable qui mène à la page globale Étape 1 -->
                 <a href="/etape1-valider.html" class="step-title-link" title="Voir toute l'Étape 1">
                     <h2>💡 Étape 1 : Valider</h2>
                 </a>
@@ -375,19 +368,13 @@
                     <li>📐 <strong>Bâtir mon modèle</strong> solo</li>
                 </ul>
             </div>
-            
-            <!-- Les petits boutons chirurgicaux en ligne tout en bas -->
-            <div class="action-buttons-row">
-                <a href="/trouver-idee.html" class="btn-mini">🧠 Idée</a>
-                <a href="/valider-concept.html" class="btn-mini">🧪 Concept</a>
-                <a href="/batir-modele.html" class="btn-mini">📐 Modèle</a>
-            </div>
+            <!-- Bouton unique d'action direct vers la page de l'étape -->
+            <a href="/etape1-valider.html" class="btn-step">Découvrir l'Étape 1 →</a>
         </section>
 
         <!-- Case Étape 2 -->
         <section class="step-section" id="piloter">
             <div>
-                <!-- Titre cliquable qui mène à la page globale Étape 2 -->
                 <a href="/etape2-piloter.html" class="step-title-link" title="Voir toute l'Étape 2">
                     <h2>📊 Étape 2 : Piloter</h2>
                 </a>
@@ -399,19 +386,13 @@
                     <li>🖥 <strong>Suivre mon activité</strong> en temps réel</li>
                 </ul>
             </div>
-            
-            <!-- Les petits boutons chirurgicaux en ligne tout en bas -->
-            <div class="action-buttons-row">
-                <a href="/outils/calcul-tarif-horaire" class="btn-mini">💰 Tarifs</a>
-                <a href="/outils/simulateur-seuil-rentabilite" class="btn-mini">📈 Seuil</a>
-                <a href="/suivre-activite.html" class="btn-mini">🖥 Piloter</a>
-            </div>
+            <!-- Bouton unique d'action direct vers la page de l'étape -->
+            <a href="/etape2-piloter.html" class="btn-step">Découvrir l'Étape 2 →</a>
         </section>
 
         <!-- Case Étape 3 -->
         <section class="step-section" id="rayonner">
             <div>
-                <!-- Titre cliquable qui mène à la page globale Étape 3 -->
                 <a href="/etape3-rayonner.html" class="step-title-link" title="Voir toute l'Étape 3">
                     <h2>🌐 Étape 3 : Rayonner</h2>
                 </a>
@@ -423,17 +404,53 @@
                     <li>🖥 <strong>Lancer mon site</strong> internet pro</li>
                 </ul>
             </div>
-            
-            <!-- Les petits boutons chirurgicaux en ligne tout en bas -->
-            <div class="action-buttons-row">
-                <a href="/choisir-canaux.html" class="btn-mini">🎯 Canaux</a>
-                <a href="/publier-contenu.html" class="btn-mini">✍ Contenu</a>
-                <a href="/lancer-site.html" class="btn-mini">🖥 Site Web</a>
-            </div>
+            <!-- Bouton unique d'action direct vers la page de l'étape -->
+            <a href="/etape3-rayonner.html" class="btn-step">Découvrir l'Étape 3 →</a>
         </section>
 
     </div>
+
+    <!-- --- REPÈRE HTML : LES 3 DERNIÈRES RESSOURCES CRÉÉES RÉCEMMENT --- -->
+    <section class="recent-resources-section">
+        <h2 class="section-title">✨ Dernières ressources et guides disponibles</h2>
+        
+        <div class="resources-grid">
+            
+            <!-- Carte Ressource 1 -->
+            <a href="/outils/calcul-tarif-horaire" class="resource-card">
+                <div>
+                    <span class="resource-meta">Outil / Calculateur</span>
+                    <h3>Simulateur de Tarif Horaire Freelance</h3>
+                    <p>Déterminez votre taux journalier ou horaire minimum pour couvrir vos charges et votre salaire idéal sans faire d'erreur.</p>
+                </div>
+                <span class="resource-link-text">Utiliser l'outil →</span>
+            </a>
+
+            <!-- Carte Ressource 2 -->
+            <a href="/outils/simulateur-seuil-rentabilite" class="resource-card">
+                <div>
+                    <span class="resource-meta">Outil / Gestion</span>
+                    <h3>Calculateur de Seuil de Rentabilité</h3>
+                    <p>Découvrez le chiffre d'affaires exact que vous devez réaliser chaque mois pour commencer à dégager de vrais bénéfices.</p>
+                </div>
+                <span class="resource-link-text">Calculer mon seuil →</span>
+            </a>
+
+            <!-- Carte Ressource 3 -->
+            <a href="/valider-concept.html" class="resource-card">
+                <div>
+                    <span class="resource-meta">Guide Pratique</span>
+                    <h3>La Méthode Terrain pour Valider son Idée</h3>
+                    <p>Un plan de route visuel pour confronter votre offre aux réalités du marché et trouver vos premiers clients sans budget.</p>
+                </div>
+                <span class="resource-link-text">Lire le guide →</span>
+            </a>
+
+        </div>
+    </section>
+
 </main>
+
     <!-- Styles CSS du Footer (À insérer idéalement avant la balise </style> dans le <head>) -->
     <style>
         footer {
